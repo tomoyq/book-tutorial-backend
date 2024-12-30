@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     "api.hello_db",
+    "api.inventory",
     "rest_framework",
     "corsheaders",
     "django.contrib.admin",
