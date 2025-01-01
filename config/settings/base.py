@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-+rht0j_%9gk7em7^7cs-%*%2#%vhyts7x6l=ny2ct++4e2w$s%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -149,6 +149,11 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
 
+# Reactサーバーからのリクエストを許可する。
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000'
+]
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'api.inventory.authentication.CustomJWTAuthentication',
@@ -164,3 +169,12 @@ SIMPLE_JWT = {
 }
 
 COOKIE_TIME = 60 * 60 * 12
+
+#CORS(クロスドメインリクエスト)でCookieを送信することを許可
+CORS_ALLOW_CREDENTIALS = True
+
+#信頼するホスト名を明記、これをやらないとCORS+DRFでやる場合CSRFエラーがでる
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'http://127.0.0.1']
+
+SESSION_COOKIE_SAMETIME = 'None'
+SESSION_COOKIE_SECURE = True
