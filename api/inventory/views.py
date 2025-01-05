@@ -32,8 +32,9 @@ class LoginView(views.APIView):
         if access:
             response = Response(status=status.HTTP_200_OK)
             max_age = settings.COOKIE_TIME
-            response.set_cookie('access', access, httponly=True, max_age=max_age)
-            response.set_cookie('refresh', refresh, httponly=True, max_age=max_age)
+            response.set_cookie('access', access, httponly=True, max_age=max_age, path='/')
+            print(access)
+            response.set_cookie('refresh', refresh, httponly=True, max_age=max_age, path='/')
             return response
         return Response({'errMsg': 'ユーザーの認証に失敗しました'}, status=status.HTTP_401_UNAUTHORIZED)
     
@@ -83,7 +84,7 @@ class ProductView(views.APIView):
         """
 
         if id is None:
-            queryset = Product.objects.all()
+            queryset = Product.objects.all().order_by('id')
             serializer = ProductSerializer(queryset, many=True)
         else:
             product = self.get_object(id)
