@@ -179,3 +179,12 @@ class InventoryView(views.APIView):
             serializer = InventorySerializer(queryset, many=True)
 
         return Response(serializer.data, status.HTTP_200_OK)
+    
+class SalesAsyncView(views.APIView):
+    pass
+
+class SalesSyncView(views.APIView):
+    pass
+
+class SalesList(views.APIView):
+    pass
