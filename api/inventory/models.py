@@ -41,21 +41,12 @@ class SalesFile(models.Model):
     売上ファイル
     """
 
-<<<<<<< HEAD
     file_name = models.CharField(max_length=150, verbose_name='ファイル名')
     status = models.IntegerField(choices=Status.choices, verbose_name='状態')
 
     class Meta:
         db_table = 'sales_file'
         verbose_name = '売上ファイル'
-=======
-    file_name = models.CharField(max_length=100, verbose_name='ファイル名')
-    status = models.IntegerField(choices=Status.choices, verbose_name='状態')
-
-    class Meta:
-        verbose_name = '売上ファイル'
-        db_table = 'sales_file'
->>>>>>> b5a56526dac999f3824518cc17a53c45fade71a6
 
 class Sales(models.Model):
     """

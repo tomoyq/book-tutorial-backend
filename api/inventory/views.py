@@ -186,7 +186,6 @@ class SalesAsyncView(views.APIView):
     pass
 
 class SalesSyncView(views.APIView):
-<<<<<<< HEAD
     def post(self, request, format=None):
         serializer = FileSeializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -205,9 +204,6 @@ class SalesSyncView(views.APIView):
             sales.save()
 
         return Response(status=201)
-=======
-    pass
->>>>>>> b5a56526dac999f3824518cc17a53c45fade71a6
 
 class SalesList(views.APIView):
     pass
